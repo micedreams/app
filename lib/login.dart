@@ -11,7 +11,6 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   late String _email;
   late String _password;
-  bool signin = true;
   bool _passwordVisible = true;
 
   final formKey = GlobalKey<FormState>();
@@ -20,13 +19,10 @@ class _LoginState extends State<Login> {
     final form = formKey.currentState;
     if (form!.validate()) {
       form.save();
+      Navigator.of(context).pushNamed(Home.routeName);
       return true;
     }
     return false;
-  }
-
-  void validateAndSubmit() async {
-    Navigator.of(context).pushNamed(Home.routeName);
   }
 
   @override
@@ -39,11 +35,11 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
+              const Padding(
+                padding: EdgeInsets.all(8.0),
                 child: Text(
-                  signin ? "Login" : "Signup",
-                  style: const TextStyle(
+                  "Login",
+                  style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF1a1a1a),
@@ -58,7 +54,7 @@ class _LoginState extends State<Login> {
                     child: TextFormField(
                       decoration: InputDecoration(
                         hintStyle: const TextStyle(color: Color(0xFF828282)),
-                        focusColor: Color(0xff283593),
+                        focusColor: const Color(0xff283593),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
                           borderSide: const BorderSide(
@@ -109,13 +105,11 @@ class _LoginState extends State<Login> {
                         contentPadding:
                             const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                         counterText: "",
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            _passwordVisible
-                                ? Icons.visibility
-                                : Icons.visibility_off,
-                            color: const Color(0xff283593),
-                          ),
+                        suffixIcon: TextButton(
+                          child: Text(_passwordVisible ? "SHOW" : "HIDE",
+                              style: const TextStyle(
+                                  color: Color(0xff283593),
+                                  fontWeight: FontWeight.bold)),
                           onPressed: () {
                             setState(() {
                               _passwordVisible = !_passwordVisible;
@@ -137,7 +131,7 @@ class _LoginState extends State<Login> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextButton(
                       onPressed: () {
-                        Navigator.of(context).pushNamed(Home.routeName);
+                        validateAndSave();
                       },
                       child: Ink(
                         width: double.infinity,
