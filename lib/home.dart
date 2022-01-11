@@ -1,5 +1,7 @@
+import 'package:app/components/FeedStrip.dart';
 import 'package:app/components/PictureCard.dart';
 import 'package:app/components/SpecialScaffold.dart';
+import 'package:app/components/User.dart';
 import 'package:app/components/WordsCard.dart';
 import 'package:flutter/material.dart';
 
@@ -16,6 +18,8 @@ class _HomeState extends State<Home> {
     return SpecialScaffold(
       body: ListView(
         children: const [
+          User(),
+          FeedStrip(),
           WordsCard(),
           PictureCard(),
         ],
