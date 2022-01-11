@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
                     child: TextFormField(
                       decoration: InputDecoration(
                         hintStyle: const TextStyle(color: Color(0xFF828282)),
-                        focusColor: const Color(0xFF007AFF),
+                        focusColor: Color(0xff283593),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
                           borderSide: const BorderSide(
@@ -89,7 +89,7 @@ class _LoginState extends State<Login> {
                     child: TextFormField(
                       decoration: InputDecoration(
                         hintStyle: const TextStyle(color: Color(0xFF828282)),
-                        focusColor: const Color(0xFF007AFF),
+                        focusColor: const Color(0xff283593),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(4.0),
                           borderSide: const BorderSide(
