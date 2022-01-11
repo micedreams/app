@@ -23,7 +23,7 @@ class SpecialCard extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.white24,
       ),
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8, right: 8),
       margin: const EdgeInsets.all(16.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -59,7 +59,9 @@ class SpecialCard extends StatelessWidget {
                                 : const SizedBox.shrink()
                           ],
                         ),
-                        Text(time, style: const TextStyle(color: Colors.grey,fontSize: 12)),
+                        Text(time,
+                            style: const TextStyle(
+                                color: Colors.grey, fontSize: 12)),
                       ],
                     ),
                   ),
